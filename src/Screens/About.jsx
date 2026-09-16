@@ -62,7 +62,7 @@ const About = () => {
                 <div className="item-content">
                   <h5>BS Information Technology</h5>
                   <p>STI West Negros University</p>
-                  <span className="year-badge">2022 - 2026 (Present)</span>
+                  <span className="year-badge">2022 - 2026 (Graduate)</span>
                 </div>
               </div>
             </div>
