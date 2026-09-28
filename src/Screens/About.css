@@ -6,6 +6,7 @@
   justify-content: center;
   font-family: 'Inter', sans-serif;
   color: var(--text-primary);
+  margin-top: -100px;
 }
 
 .about-container {
@@ -343,6 +344,71 @@
     font-size: 0.7rem;
   }
 }
+
+/* Skills / Technologies */
+
+.about-skills {
+  margin-top: 45px;
+}
+
+.skills-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.skills-heading span {
+  width: 5px;
+  height: 22px;
+  border-radius: 10px;
+  background: var(--accent-primary);
+}
+
+.skills-heading h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-button {
+  appearance: none;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+
+  padding: 9px 15px;
+  border-radius: 100px;
+
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+  font-weight: 500;
+
+  cursor: default;
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.skill-button:hover {
+  color: var(--accent-primary);
+  border-color: var(--accent-primary);
+  background: rgba(16, 185, 129, 0.06);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(16, 185, 129, 0.08);
+}
+
+
 
 /* Extra Small Mobile */
 @media (max-width: 360px) {

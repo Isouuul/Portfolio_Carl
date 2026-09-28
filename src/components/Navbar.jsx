@@ -31,7 +31,6 @@ const Navbar = () => {
         <div className={`nav-links ${isOpen ? "active" : ""}`}>
           <Link to="/" onClick={() => setIsOpen(false)} style={{ "--i": 1 }}>Home</Link>
           <Link to="/about" onClick={() => setIsOpen(false)} style={{ "--i": 2 }}>About</Link>
-          <Link to="/experiences" onClick={() => setIsOpen(false)} style={{ "--i": 3 }}>Experiences</Link>
           <Link to="/Projects" onClick={() => setIsOpen(false)} style={{ "--i": 4 }}>Projects</Link>
           
           {/* Mobile-only CTA in the menu */}
