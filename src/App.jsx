@@ -1,37 +1,19 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import LandingPage from "./Screens/LandingPage";
-import Navbar from "./components/Navbar";
-import About from "./Screens/About";
-import Footer from "./Screens/Footer";
-import Projects from "./Screens/Projects";
-import { ThemeProvider } from "./context/ThemeContext";
+import React, { useState } from 'react';
+import BackgroundContent from './components/BackgroundContent';
+import MainContentContainer from './components/MainContentContainer';
+import './App.css';
 
 function App() {
-  return (
-    <ThemeProvider>
-      <Router>
-        <Navbar />
-        <main style={{ paddingTop: '120px', flex: 1 }}>
-          <Routes>
-            <Route path="/" element={<>
-              <LandingPage />
-              <About />
-              <Projects />
-              <Footer />
-            </>} />
-            <Route path="/projects" element={<>
-              <Projects />
-              <Footer />
-            </>} />
-            <Route path="/about" element={<>
-              <About />
-              <Footer />
-            </>} />
+  const [activeTab, setActiveTab] = useState('github');
 
-          </Routes>
-        </main>
-      </Router>
-    </ThemeProvider>
+  return (
+    <div className="app-layout">
+      {/* Background Hero Area */}
+      <BackgroundContent activeTab={activeTab} setActiveTab={setActiveTab} />
+      
+      {/* Overlapping Content Section below/overlaying BackgroundContent */}
+      <MainContentContainer activeTab={activeTab} />
+    </div>
   );
 }
 

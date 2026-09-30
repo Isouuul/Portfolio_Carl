@@ -1,0 +1,77 @@
+/* Container section matching Warmane's dark theme */
+.tab-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+  background-color: #0b0b0b; /* Warmane dark background */
+  color: #cca553; /* Warmane body text color (golden/tan) */
+  font-family: 'Trebuchet MS', Arial, sans-serif; /* Clean, RPG-style typography */
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+/* Section Title (Matches Warmane header style) */
+.section-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #8fae12; /* Warmane olive-green title header */
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid #222222;
+  padding-bottom: 0.5rem;
+}
+
+/* Main Paragraph Styling */
+.section-text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #cca553; /* Golden/tan text */
+  margin-bottom: 1.5rem;
+}
+
+/* Highlighted keywords / Strong text */
+.section-text strong {
+  color: #e5be6b; /* Lighter gold for emphasis */
+  font-weight: 600;
+}
+
+/* Sub-section Styling */
+.about-sub-section {
+  margin-top: 2rem;
+  padding-top: 1rem;
+}
+
+/* Sub-title ("Beyond Coding") */
+.sub-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #8fae12; /* Olive green header */
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+/* Links (Matches the 'here' links in Warmane UI) */
+.tab-section a {
+  color: #3888c7; /* Warmane link blue */
+  text-decoration: none;
+}
+
+.tab-section a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  .tab-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .section-text {
+    font-size: 0.95rem;
+  }
+}

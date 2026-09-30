@@ -1,57 +1,59 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import "./Navbar.css";
-import ThemeToggle from "./ThemeToggle";
+import React from 'react';
+import { FaGithub, FaLinkedin, FaFacebook, FaInstagram } from 'react-icons/fa';
+import './Navbar.css';
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+const Navbar = ({ activeTab, setActiveTab }) => {
+  const navItems = [
+    { 
+      label: 'GitHub', 
+      value: 'github', 
+      url: 'https://github.com/Isouuul', 
+      icon: <FaGithub /> 
+    },
+    { 
+      label: 'LinkedIn', 
+      value: 'linkedin', 
+      url: 'https://www.linkedin.com/in/carl-bryan-sacudit-9b1597404', 
+      icon: <FaLinkedin /> 
+    },
+    { 
+      label: 'Facebook', 
+      value: 'facebook', 
+      url: 'https://www.facebook.com/hesoyam123099', 
+      icon: <FaFacebook /> 
+    },
+    { 
+      label: 'Instagram', 
+      value: 'instagram', 
+      url: 'https://www.instagram.com/_hue_forya/', 
+      icon: <FaInstagram /> 
+    },
+  ];
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Prevent scrolling when mobile menu is open
-  useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "unset";
-  }, [isOpen]);
+  const handleClick = (item) => {
+    if (setActiveTab) setActiveTab(item.value);
+  };
 
   return (
-    <nav className={`navbar ${scrolled ? "scrolled" : ""} ${isOpen ? "nav-open" : ""}`}>
-      <div className="nav-container">
-        <Link to="/" className="nav-logo" onClick={() => setIsOpen(false)}>
-          C<span>B</span>
-        </Link>
+    <nav className="neo-navbar-container">
 
-        {/* Mobile Overlay Backdrop */}
-        <div className={`nav-overlay ${isOpen ? "active" : ""}`} onClick={() => setIsOpen(false)}></div>
-
-        <div className={`nav-links ${isOpen ? "active" : ""}`}>
-          <Link to="/" onClick={() => setIsOpen(false)} style={{ "--i": 1 }}>Home</Link>
-          <Link to="/about" onClick={() => setIsOpen(false)} style={{ "--i": 2 }}>About</Link>
-          <Link to="/Projects" onClick={() => setIsOpen(false)} style={{ "--i": 4 }}>Projects</Link>
-          
-          {/* Mobile-only CTA in the menu */}
-          <button className="mobile-cta">Hire Me</button>
-        </div>
-
-        <div className="nav-actions">
-          <ThemeToggle />
-          <button className="nav-cta">Hire Me</button>
-          
-          <div 
-            className={`nav-hamburger ${isOpen ? "toggle" : ""}`} 
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Menu"
-          >
-            <div className="line1"></div>
-            <div className="line2"></div>
-            <div className="line3"></div>
-          </div>
-        </div>
-      </div>
+      {/* Social Links with Icon + Label */}
+      <ul className="neo-navbar-list">
+        {navItems.map((item) => (
+          <li key={item.value} className="neo-navbar-item">
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`neo-navbar-btn ${activeTab === item.value ? 'active' : ''}`}
+              onClick={() => handleClick(item)}
+            >
+              <span className="neo-navbar-icon">{item.icon}</span>
+              <span className="neo-navbar-label">{item.label}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
     </nav>
   );
 };
