@@ -381,7 +381,7 @@
 /* Make the main panel occupy the entire row */
 
 .content-left-panel-full {
-  width: 100%;
+  width: auto;
 }
 
 
