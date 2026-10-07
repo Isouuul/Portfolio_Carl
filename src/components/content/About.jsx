@@ -7,9 +7,10 @@ const About = () => {
     <div className="about-wrapper">
 
       {/* Profile Header */}
-      <div className="about-profile-header">
+      <header className="about-profile-header">
         <div className="profile-picture-wrapper">
-          <div className="profile-pulse-ring"></div>
+          {/* Spinning arc with a gold diamond at its head */}
+          <div className="profile-pulse-ring" aria-hidden="true"></div>
 
           <img
             src={profilePicture}
@@ -22,13 +23,16 @@ const About = () => {
         <p className="profile-role">
           Full Stack Developer | BSIT Graduate
         </p>
-      </div>
+      </header>
 
       {/* About Content */}
       <div className="about-main">
 
-        <section className="about-section-block">
-          <h2 className="section-title">ABOUT ME</h2>
+        <section className="about-section-block" aria-labelledby="about-me-title">
+          <div className="section-header">
+            <h2 id="about-me-title" className="section-title">ABOUT ME</h2>
+            <span className="section-rule" aria-hidden="true"></span>
+          </div>
 
           <p className="section-text">
             I'm a <strong>Full Stack Developer</strong> and{' '}
@@ -40,8 +44,14 @@ const About = () => {
           </p>
         </section>
 
-        <section className="about-section-block beyond-coding">
-          <h3 className="sub-title">BEYOND CODING</h3>
+        <section
+          className="about-section-block beyond-coding"
+          aria-labelledby="beyond-coding-title"
+        >
+          <div className="section-header">
+            <h3 id="beyond-coding-title" className="sub-title">BEYOND CODING</h3>
+            <span className="section-rule" aria-hidden="true"></span>
+          </div>
 
           <p className="section-text">
             When I'm not at my computer, I'm usually exploring the latest

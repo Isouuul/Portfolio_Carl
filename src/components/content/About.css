@@ -1,340 +1,251 @@
-/* ========================================
-   ABOUT WRAPPER
-======================================== */
-
+/* ---------- About: dark fantasy, matches Projects ---------- */
 .about-wrapper {
-  position: relative;
+  --gold: #d1a842;
+  --gold-dim: rgba(209, 168, 66, 0.35);
+  --olive: #8fa31f;
+  --ink: #0b0d0a;
+  --line: #2d2512;
+  --text: #d9d1bc;
+  --muted: #8d8670;
+  --serif: Georgia, "Times New Roman", serif;
 
-  width: 100%;
-  max-width: 1100px;
-
-  margin: 0 auto;
-  padding: 70px 45px 60px;
-
-  background: #080909;
-
-  border: 1px solid rgba(255, 255, 255, 0.04);
-
-  box-shadow:
-    0 10px 40px rgba(0, 0, 0, 0.35),
-    inset 0 0 30px rgba(255, 255, 255, 0.01);
-
-  color: #d7d7d7;
-
-  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-family: var(--serif);
+  color: var(--text);
 }
 
+/* shared panel look */
+.about-profile-header,
+.about-main {
+  background: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.45);
+}
 
-/* ========================================
-   PROFILE HEADER
-======================================== */
-
+/* ---------- profile header ---------- */
 .about-profile-header {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 36px 24px 30px;
   text-align: center;
-  margin-top: -35px;
-  margin-bottom: 40px;
-  position: relative;
-  z-index: 5;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(143, 163, 31, 0.08), transparent 60%),
+    var(--ink);
 }
 
+/* corner brackets on both panels */
+.about-profile-header::before,
+.about-main::before {
+  --c: var(--gold-dim);
+  content: "";
+  position: absolute;
+  inset: 8px;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--c), var(--c)) top left / 14px 1px no-repeat,
+    linear-gradient(var(--c), var(--c)) top left / 1px 14px no-repeat,
+    linear-gradient(var(--c), var(--c)) top right / 14px 1px no-repeat,
+    linear-gradient(var(--c), var(--c)) top right / 1px 14px no-repeat,
+    linear-gradient(var(--c), var(--c)) bottom left / 14px 1px no-repeat,
+    linear-gradient(var(--c), var(--c)) bottom left / 1px 14px no-repeat,
+    linear-gradient(var(--c), var(--c)) bottom right / 14px 1px no-repeat,
+    linear-gradient(var(--c), var(--c)) bottom right / 1px 14px no-repeat;
+}
 
-/* ========================================
-   PROFILE PICTURE
-======================================== */
-
+/* ---------- photo + circulating ring ---------- */
 .profile-picture-wrapper {
   position: relative;
-
-  width: 150px;
-  height: 150px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
+  width: 184px;
+  height: 184px;
+  margin-bottom: 22px;
   border-radius: 50%;
-
-  background: #171b13;
-
-  box-shadow:
-    0 8px 25px rgba(0, 0, 0, 0.6);
-
-  z-index: 1;
+  animation: about-glow 4s ease-in-out infinite;
 }
 
-
-/* Main profile image */
-
-.profile-picture {
-  position: relative;
-
-  width: 142px;
-  height: 142px;
-
-  object-fit: cover;
-
+/* faint full track the arc runs on */
+.profile-picture-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   border-radius: 50%;
-
-  border: 2px solid #111;
-
-  z-index: 3;
+  border: 4px solid #14170f;
 }
 
+/* slow dashed orbit turning the opposite way */
+.profile-picture-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border-radius: 50%;
+  border: 1px dashed var(--gold-dim);
+  animation: about-spin 40s linear infinite reverse;
+}
 
-/* ========================================
-   CIRCULATING PULSE RING
-======================================== */
-
+/* the spinning olive-to-gold arc */
 .profile-pulse-ring {
   position: absolute;
-
-  inset: -7px;
-
+  inset: 0;
   border-radius: 50%;
-
-  border: 2px solid transparent;
-
-  border-top-color: #8aaa24;
-  border-right-color: rgba(138, 170, 36, 0.35);
-
-  z-index: 2;
-
-  animation: profileOrbit 3s linear infinite;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(143, 163, 31, 0.15) 12%,
+    var(--olive) 70%,
+    var(--gold) 100%
+  );
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 3px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 3px));
+  animation: about-spin 5s linear infinite;
 }
 
-
-/* Second subtle pulse */
-
-.profile-pulse-ring::before {
+/* gold diamond riding the head of the arc */
+.profile-pulse-ring::after {
   content: "";
-
   position: absolute;
+  top: 2px;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  background: var(--gold);
+  transform: translate(-50%, -50%) rotate(45deg);
+  box-shadow: 0 0 10px 2px rgba(209, 168, 66, 0.55);
+}
 
-  inset: -6px;
-
+.profile-picture {
+  position: absolute;
+  inset: 18px;
+  width: calc(100% - 36px);
+  height: calc(100% - 36px);
+  object-fit: cover;
   border-radius: 50%;
-
-  border: 1px solid rgba(197, 169, 104, 0.35);
-
-  animation: profilePulse 2.5s ease-out infinite;
+  border: 2px solid var(--gold-dim);
+  background: #000;
 }
-
-
-/* ========================================
-   ANIMATIONS
-======================================== */
-
-@keyframes profileOrbit {
-
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-
-}
-
-
-@keyframes profilePulse {
-
-  0% {
-    transform: scale(0.95);
-    opacity: 0.7;
-  }
-
-  70% {
-    transform: scale(1.12);
-    opacity: 0;
-  }
-
-  100% {
-    transform: scale(1.12);
-    opacity: 0;
-  }
-
-}
-
-
-/* ========================================
-   PROFILE NAME
-======================================== */
 
 .profile-name {
-  margin: 14px 0 2px;
-
-  font-size: 27px;
+  margin: 0;
+  font-size: 1.9rem;
   font-weight: 700;
-
-  letter-spacing: 0.5px;
-
-  color: #c5a968;
+  letter-spacing: 0.08em;
+  color: var(--gold);
 }
-
 
 .profile-role {
-  margin: 0;
-
-  font-size: 14px;
-  font-weight: 500;
-
-  color: #bcbcbc;
+  margin: 6px 0 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
 }
 
-
-/* ========================================
-   ABOUT CONTENT
-======================================== */
-
+/* ---------- main content ---------- */
 .about-main {
-  width: 100%;
-
-  min-width: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 32px 36px 36px;
 }
 
-
-/* ========================================
-   SECTION BLOCK
-======================================== */
-
-.about-section-block {
-  margin-bottom: 55px;
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
 }
 
-
-.about-section-block:last-child {
-  margin-bottom: 0;
+.section-title,
+.sub-title {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--olive);
 }
-
-
-/* ========================================
-   SECTION TITLE
-======================================== */
 
 .section-title {
-  margin: 0 0 25px;
-
-  padding-bottom: 13px;
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-
-  font-size: 28px;
-  font-weight: 700;
-
-  letter-spacing: 1px;
-
-  color: #8aaa24;
+  font-size: 1.6rem;
 }
 
+.sub-title {
+  font-size: 1.2rem;
+}
 
-/* ========================================
-   BODY TEXT
-======================================== */
+.section-title::before,
+.sub-title::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.sub-title::before {
+  width: 8px;
+  height: 8px;
+}
+
+.section-rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold-dim), transparent);
+}
 
 .section-text {
   margin: 0;
-
-  font-size: 15px;
-
-  line-height: 1.8;
-
-  color: #d4d4d4;
+  max-width: 72ch;
+  font-size: 0.95rem;
+  line-height: 1.95;
+  color: #cfc7b2;
 }
-
 
 .section-text strong {
-  color: #d6a63d;
-
-  font-weight: 600;
-}
-
-
-/* ========================================
-   BEYOND CODING
-======================================== */
-
-.sub-title {
-  margin: 0 0 22px;
-
-  font-size: 22px;
   font-weight: 700;
-
-  color: #8aaa24;
-
-  letter-spacing: 0.5px;
+  color: var(--gold);
 }
 
+/* ---------- animation ---------- */
+@keyframes about-spin {
+  to { transform: rotate(360deg); }
+}
 
-/* ========================================
-   RESPONSIVE
-======================================== */
+@keyframes about-glow {
+  0%, 100% { box-shadow: 0 0 18px rgba(143, 163, 31, 0.12); }
+  50%      { box-shadow: 0 0 34px rgba(209, 168, 66, 0.22); }
+}
 
-@media (max-width: 600px) {
-
-  .about-wrapper {
-    padding: 60px 20px 35px;
-  }
-
-
+/* ---------- responsive ---------- */
+@media (max-width: 560px) {
   .about-profile-header {
-    margin-top: -105px;
+    padding: 28px 16px 24px;
   }
-
-
   .profile-picture-wrapper {
-    width: 125px;
-    height: 125px;
+    width: 156px;
+    height: 156px;
   }
-
-
-  .profile-picture {
-    width: 117px;
-    height: 117px;
-  }
-
-
   .profile-name {
-    font-size: 23px;
+    font-size: 1.4rem;
   }
-
-
-  .profile-role {
-    font-size: 13px;
+  .about-main {
+    padding: 24px 20px 28px;
   }
-
-
   .section-title {
-    font-size: 24px;
+    font-size: 1.3rem;
   }
-
-
-  .sub-title {
-    font-size: 19px;
-  }
-
-
-  .section-text {
-    font-size: 14px;
-
-    line-height: 1.75;
-  }
-
 }
-
-
-/* ========================================
-   REDUCED MOTION
-======================================== */
 
 @media (prefers-reduced-motion: reduce) {
-
-  .profile-pulse-ring,
-  .profile-pulse-ring::before {
+  .profile-picture-wrapper,
+  .profile-picture-wrapper::after,
+  .profile-pulse-ring {
     animation: none;
   }
-
 }
