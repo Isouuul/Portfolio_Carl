@@ -1,4 +1,5 @@
-import "./TechTools.css";
+import "./Techtools.css";
+import { createElement } from "react";
 import {
   FaReact,
   FaJs,
@@ -63,7 +64,9 @@ export default function TechTools() {
           <h2 id="tech-title" className="tech-title">
             Tech tools
           </h2>
+
           <span className="tech-rule" aria-hidden="true" />
+
           <span className="tech-count" aria-label={`${TOTAL} tools`}>
             {TOTAL}
           </span>
@@ -73,11 +76,17 @@ export default function TechTools() {
           {GROUPS.map((group) => (
             <article key={group.key} className="tech-card">
               <h3 className="tech-card-name">{group.name}</h3>
+
               <p className="tech-card-note">{group.note}</p>
+
               <ul className="tech-tools">
                 {group.tools.map(({ name, Icon }) => (
                   <li key={name} className="tech-tool">
-                    <Icon className="tech-tool-icon" aria-hidden="true" />
+                    {createElement(Icon, {
+                      className: "tech-tool-icon",
+                      "aria-hidden": true,
+                    })}
+
                     <span>{name}</span>
                   </li>
                 ))}

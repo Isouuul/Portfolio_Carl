@@ -156,10 +156,6 @@ const Projects = ({
     }
   }, [selectedProject]);
 
-  useEffect(() => {
-    setActiveSlide(0);
-  }, [selectedProject]);
-
   const projectMedia = selectedProject?.images ?? [];
   const isCarousel = projectMedia.length > 3;
 
@@ -265,7 +261,10 @@ const Projects = ({
                         className="project-link"
                         type="button"
                         aria-haspopup="dialog"
-                        onClick={() => setSelectedProject(project)}
+                        onClick={() => {
+                          setActiveSlide(0);
+                          setSelectedProject(project);
+                        }}
                       >
                         View project
                       </button>
