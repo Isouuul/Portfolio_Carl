@@ -167,11 +167,18 @@
 
 @media (max-width: 600px) {
   .background-outer-wrapper {
-    padding: 16px 10px;
+    align-items: flex-start;
+    min-height: 0;
+    padding: 42px 10px 0;
   }
 
   .frame-border-container {
-    height: min(68svh, 640px);
-    min-height: min(400px, calc(100svh - 32px));
+    height: auto;
+    aspect-ratio: 16 / 10;
+    min-height: 0;
+  }
+
+  .frame-canvas {
+    background-position: center 35%;
   }
 }
