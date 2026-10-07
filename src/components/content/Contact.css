@@ -12,13 +12,14 @@
   --sans: "Segoe UI", system-ui, -apple-system, sans-serif;
 
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 300px;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 300px);
   gap: 24px;
   font-family: var(--serif);
   color: var(--text);
 }
 
 .contact-panel {
+  min-width: 0;
   background: var(--ink);
   border: 1px solid var(--line);
   border-radius: 6px;
@@ -306,16 +307,46 @@ a.contact-info-value:hover {
 /* responsive */
 @media (max-width: 900px) {
   .contact-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
 @media (max-width: 560px) {
   .contact-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
+
   .contact-panel {
     padding: 20px 18px 22px;
+  }
+
+  .contact-field input,
+  .contact-field textarea {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  .contact-panel {
+    padding: 18px 14px 20px;
+  }
+
+  .contact-header,
+  .contact-row {
+    gap: 14px;
+  }
+
+  .contact-title,
+  .contact-side-title {
+    font-size: 1.2rem;
+  }
+
+  .contact-info-item {
+    padding: 12px;
+  }
+
+  .contact-social {
+    padding: 7px 10px;
   }
 }
 

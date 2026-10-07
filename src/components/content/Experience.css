@@ -81,6 +81,7 @@
 
 .exp-card {
   position: relative;
+  min-width: 0;
   padding: 24px 26px;
   background: linear-gradient(160deg, #12150f, #0c0e0a);
   border: 1px solid var(--line);
@@ -152,6 +153,7 @@
 }
 
 .exp-role {
+  min-width: 0;
   margin: 0;
   font-size: 1.15rem;
   font-weight: 700;
@@ -210,12 +212,47 @@
 }
 
 /* responsive */
+@media (max-width: 850px) {
+  .exp-panel {
+    padding: 22px 22px 24px;
+  }
+
+  .exp-card {
+    padding: 22px;
+  }
+}
+
 @media (max-width: 560px) {
   .exp-panel {
     padding: 20px 18px 22px;
   }
+
   .exp-card {
     padding: 20px 18px;
+  }
+
+  .exp-card-top {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 380px) {
+  .exp-panel {
+    padding: 18px 14px 20px;
+  }
+
+  .exp-card {
+    padding: 18px 14px;
+  }
+
+  .exp-card-top {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .exp-period {
+    white-space: normal;
   }
 }
 

@@ -18,6 +18,7 @@
 }
 
 .tech-panel {
+  min-width: 0;
   background: var(--ink);
   border: 1px solid var(--line);
   border-radius: 6px;
@@ -81,6 +82,7 @@
 
 .tech-card {
   position: relative;
+  min-width: 0;
   padding: 24px 26px;
   background: linear-gradient(160deg, #12150f, #0c0e0a);
   border: 1px solid var(--line);
@@ -213,6 +215,28 @@
   }
   .tech-card {
     padding: 20px 18px;
+  }
+}
+
+@media (max-width: 380px) {
+  .tech-panel {
+    padding: 18px 14px 20px;
+  }
+
+  .tech-header {
+    gap: 10px;
+  }
+
+  .tech-title {
+    font-size: 1.3rem;
+  }
+
+  .tech-card {
+    padding: 18px 14px;
+  }
+
+  .tech-tool {
+    padding: 7px 10px;
   }
 }
 

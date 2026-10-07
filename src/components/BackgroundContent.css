@@ -1,22 +1,23 @@
 /* Page Wrapper & Outer Reset */
 .background-outer-wrapper {
-  min-height: 100vh;
+  min-height: 100svh;
   width: 100%;
   background-color: #050505;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 32px 24px;
+  padding: clamp(18px, 3vw, 32px) clamp(12px, 2.4vw, 24px);
   box-sizing: border-box;
 }
 
 /* Main Frame Container */
 .frame-border-container {
   position: relative;
-  width: 100%;
-  max-width: 1800px;
-  height: 80vh;
-  min-height: 550px;
+  flex: 0 1 1800px;
+  width: min(100%, 1800px);
+  min-width: 0;
+  height: min(80svh, 900px);
+  min-height: min(550px, calc(100svh - 64px));
   padding: 12px;
   box-sizing: border-box;
   background-color: #120b07;
@@ -151,4 +152,26 @@
   right: -2px;
   border-color: #000 #1a0e07 #1a0e07 #000;
   box-shadow: inset -1px -1px 0 #2a170c;
+}
+
+@media (max-width: 850px) {
+  .background-outer-wrapper {
+    padding: 20px 14px;
+  }
+
+  .frame-border-container {
+    height: min(72svh, 760px);
+    min-height: min(480px, calc(100svh - 48px));
+  }
+}
+
+@media (max-width: 600px) {
+  .background-outer-wrapper {
+    padding: 16px 10px;
+  }
+
+  .frame-border-container {
+    height: min(68svh, 640px);
+    min-height: min(400px, calc(100svh - 32px));
+  }
 }

@@ -23,9 +23,8 @@
 .main-content-container {
   position: relative;
   z-index: 10;
-  width: 100%;
-  max-width: 1200px;
-  margin: -200px auto 60px auto;
+  width: min(100%, 1200px);
+  margin: clamp(-200px, -14vw, -80px) auto 60px;
   padding: 12px;
   background-color: var(--frame-bg);
   box-sizing: border-box;
@@ -382,7 +381,7 @@
 /* Make the main panel occupy the entire row */
 
 .content-left-panel-full {
-  width: 96.4%;
+  width: 100%;
 }
 
 
@@ -674,7 +673,7 @@
 @media (max-width: 850px) {
 
   .main-content-container {
-    margin-top: -80px;
+    margin-top: clamp(-120px, -14vw, -64px);
     padding: 12px;
   }
 
