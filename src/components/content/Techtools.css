@@ -1,8 +1,10 @@
 /* ---------- TechTools: dark fantasy, matches Projects ---------- */
 .tech-layout {
-  --gold: #d1a842;
-  --gold-dim: rgba(209, 168, 66, 0.35);
-  --olive: #8fa31f;
+  --gold: #c5a968;
+  --gold-bright: #d7b764;
+  --gold-dim: rgba(197, 169, 104, 0.35);
+  --olive: #8aaa24;
+  --olive-bright: #a9d62a;
   --ink: #0b0d0a;
   --card: #10130e;
   --line: #2d2512;
@@ -83,15 +85,26 @@
   background: linear-gradient(160deg, #12150f, #0c0e0a);
   border: 1px solid var(--line);
   border-radius: 3px;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(138, 170, 36, 0.35);
+  box-shadow:
+    0 16px 38px rgba(0, 0, 0, 0.5),
+    0 0 26px rgba(138, 170, 36, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 /* four corner brackets */
 .tech-card::before {
-  --c: var(--gold-dim);
+  --c: rgba(197, 169, 104, 0.38);
   content: "";
   position: absolute;
   inset: 8px;
   pointer-events: none;
+  transition: filter 0.3s ease;
   background:
     linear-gradient(var(--c), var(--c)) top left / 12px 1px no-repeat,
     linear-gradient(var(--c), var(--c)) top left / 1px 12px no-repeat,
@@ -103,11 +116,45 @@
     linear-gradient(var(--c), var(--c)) bottom right / 1px 12px no-repeat;
 }
 
+.tech-card:hover::before {
+  filter: brightness(1.8);
+}
+
+.tech-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--olive-bright),
+    var(--gold-bright),
+    transparent
+  );
+  box-shadow: 0 0 14px rgba(169, 214, 42, 0.5);
+  transform: translateX(-50%);
+  transition: width 0.45s ease;
+  pointer-events: none;
+}
+
+.tech-card:hover::after {
+  width: 100%;
+}
+
 .tech-card-name {
   margin: 0 0 6px;
   font-size: 1.15rem;
   font-weight: 700;
   color: #efe8d4;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.tech-card:hover .tech-card-name {
+  color: var(--gold-bright);
+  text-shadow: 0 0 14px rgba(215, 183, 100, 0.25);
 }
 
 .tech-card-note {
@@ -172,6 +219,10 @@
 @media (prefers-reduced-motion: reduce) {
   .tech-layout * {
     transition: none !important;
+  }
+
+  .tech-card:hover {
+    transform: none;
   }
   
 }

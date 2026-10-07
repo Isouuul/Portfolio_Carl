@@ -127,7 +127,7 @@ const MainContentContainer = () => {
                 <>
                   <h2 className="sidebar-title">PROFILE</h2>
 
-                  <ul className="sidebar-list">
+                  <ul className="sidebar-list profile-sidebar-list">
                     <li>
                       <span className="stat-name">Internship</span>
                       <span className="stat-val">Thy Web Dev Inc.</span>
