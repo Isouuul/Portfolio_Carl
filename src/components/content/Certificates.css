@@ -1,0 +1,119 @@
+.cert-layout {
+  width: 100%;
+}
+
+.cert-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.cert-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.cert-title {
+  margin: 0;
+  font-size: clamp(1.6rem, 2vw, 2.2rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f3d07a;
+}
+
+.cert-rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(243, 208, 122, 0.9),
+    rgba(243, 208, 122, 0.18)
+  );
+}
+
+.cert-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: rgba(243, 208, 122, 0.12);
+  border: 1px solid rgba(243, 208, 122, 0.4);
+  color: #f3d07a;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.cert-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.25rem 1.2rem;
+  background: linear-gradient(180deg, rgba(19, 19, 19, 0.95), rgba(12, 12, 12, 0.95));
+  border: 1px solid rgba(243, 208, 122, 0.35);
+  border-radius: 16px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 14px 30px rgba(0, 0, 0, 0.28);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.cert-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(243, 208, 122, 0.75);
+}
+
+.cert-year {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(143, 174, 18, 0.12);
+  border: 1px solid rgba(143, 174, 18, 0.38);
+  color: #b7d14a;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cert-name {
+  margin: 0;
+  color: #f7f1df;
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+
+.cert-issuer {
+  margin: 0;
+  color: #d7a851;
+  font-size: 0.92rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.cert-description {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+  .cert-header {
+    flex-wrap: wrap;
+  }
+
+  .cert-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -5,6 +5,7 @@ import About from './content/About';
 import Projects from './content/Projects';
 import Contact from './content/Contact';
 import Experience from './content/Experience';
+import Certificates from './content/Certificates';
 import TechTools from './content/TechTools';
 
 const TABS = [
@@ -12,6 +13,7 @@ const TABS = [
   { id: 'projects', label: 'PROJECTS' },
   { id: 'contact', label: 'CONTACT' },
   { id: 'experience', label: 'WORK EXPERIENCE' },
+  { id: 'certificates', label: 'CERTIFICATES' },
   { id: 'tech-tools', label: 'TECH TOOLS' },
 ];
 
@@ -20,6 +22,7 @@ const TAB_COMPONENTS = {
   projects: Projects,
   contact: Contact,
   experience: Experience,
+  certificates: Certificates,
   'tech-tools': TechTools,
 };
 
