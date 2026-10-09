@@ -1,5 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight, Play } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Code2, Database, Play, PlugZap } from 'lucide-react';
+import {
+  SiAppsmith,
+  SiFirebase,
+  SiGooglemaps,
+  SiJavascript,
+  SiMongodb,
+  SiNodedotjs,
+  SiReact,
+} from 'react-icons/si';
 import './Projects.css';
 
 import mabels1 from '../../assets/ProjectsList/Mabels1.jpg';
@@ -16,6 +25,32 @@ import freshStart13 from '../../assets/ProjectsList/FreshStart-13.jpg';
 import thyExamify1 from '../../assets/ProjectsList/thy-examify-1.jpg';
 import thyExamify2 from '../../assets/ProjectsList/thy-examify-2.jpg';
 
+const TECHNOLOGY_ICONS = {
+  'React Native': SiReact,
+  Firebase: SiFirebase,
+  Javascript: SiJavascript,
+  JavaScript: SiJavascript,
+  'Node.js': SiNodedotjs,
+  React: SiReact,
+  'Maps API': SiGooglemaps,
+  MongoDB: SiMongodb,
+  CSS: Code2,
+  'REST API': PlugZap,
+  'REST APIs': PlugZap,
+  Appsmith: SiAppsmith,
+  CRUD: Database,
+};
+
+const TechnologyTag = ({ technology }) => {
+  const TechnologyIcon = TECHNOLOGY_ICONS[technology] ?? Code2;
+
+  return (
+    <span className="technology-tag">
+      <TechnologyIcon className="technology-icon" aria-hidden="true" />
+      {technology}
+    </span>
+  );
+};
 const PROJECTS = [
   // PERSONAL PROJECTS
   {
@@ -230,12 +265,7 @@ const Projects = ({
                       {project.technologies.length > 0 && (
                         <div className="project-technologies">
                           {project.technologies.map((technology) => (
-                            <span
-                              className="technology-tag"
-                              key={technology}
-                            >
-                              {technology}
-                            </span>
+                            <TechnologyTag key={technology} technology={technology} />
                           ))}
                         </div>
                       )}
@@ -298,9 +328,7 @@ const Projects = ({
             </p>
             <div className="project-modal-technologies">
               {selectedProject.technologies.map((technology) => (
-                <span className="technology-tag" key={technology}>
-                  {technology}
-                </span>
+                <TechnologyTag key={technology} technology={technology} />
               ))}
             </div>
 
