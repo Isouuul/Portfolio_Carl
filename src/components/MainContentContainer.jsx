@@ -132,7 +132,7 @@ const MainContentContainer = () => {
                       <span className="stat-name">Internship</span>
                       <span className="stat-val">Thy Web Dev Inc.</span>
                     </li>
-
+                  
                     <li>
                       <span className="stat-name">Work At</span>
                       <span className="stat-val">

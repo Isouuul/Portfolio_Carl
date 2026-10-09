@@ -201,7 +201,7 @@
 
 .section-text {
   margin: 0;
-  max-width: 72ch;
+  max-width: auto;
   font-size: 0.95rem;
   line-height: 1.95;
   color: #cfc7b2;

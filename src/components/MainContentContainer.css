@@ -23,7 +23,7 @@
 .main-content-container {
   position: relative;
   z-index: 10;
-  width: min(100%, 1200px);
+  width: min(100%, 1500px);
   margin: clamp(-200px, -14vw, -80px) auto 60px;
   padding: 12px;
   background-color: var(--frame-bg);
@@ -358,9 +358,7 @@
 
 .content-body {
   display: grid;
-
-  grid-template-columns: 1fr 300px;
-
+  grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
   gap: 24px;
 }
 
@@ -466,7 +464,7 @@
 ========================================= */
 
 .stat-name {
-  font-size: 0.7rem;
+  font-size: 1rem;
 
   text-transform: uppercase;
 
@@ -556,7 +554,7 @@
 
 
 .stat-val {
-  font-size: 0.85rem;
+  font-size: 1rem;
 
   font-weight: 600;
 

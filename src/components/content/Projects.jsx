@@ -28,8 +28,8 @@ const PROJECTS = [
     category: 'personal',
     categoryLabel: 'Personal Project',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    technologies: ['React', 'CSS', 'Node.js'],
+    "Mabel's Restaurant is a mobile POS system built to support essential restaurant operations using Firebase for data management. It includes table reservations, menu management with create, update, and delete functionality, and receipt printing. giving me hands-on experience building a practical restaurant management application.",
+    technologies: ['React Native', 'Firebase', "Javascript", "Node.js"],
     images: [mabels1, mabels2],
   },
   {
@@ -39,9 +39,8 @@ const PROJECTS = [
     category: 'personal',
     categoryLabel: 'Personal Project',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
-    technologies: ['React', 'JavaScript'],
-  },
+      'A simple mobile To-Do List application and my first mobile project integrating Firebase. It implements basic CRUD functionality, allowing users to create, view, edit, and delete tasks while storing and managing task data through Firebase.',
+    technologies: ['React Native', 'Firebase', "Node.js"],  },
   {
     id: 'resqnow',
     title: 'ResQnow',
@@ -49,7 +48,7 @@ const PROJECTS = [
     category: 'personal',
     categoryLabel: 'Personal Project',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse.',
+    "ResQnow is a real-time emergency response system designed to help the DRRMO respond to and track reported incidents. The mobile application uses geofencing, Google Maps API, and pin-based location reporting to identify incident locations. Reported incidents trigger real-time alerts with a siren notification on the React/Vite web dashboard, enabling administrators to monitor and respond to incidents more efficiently.",
     technologies: ['React', 'Firebase', 'Maps API'],
     images: [resqnow1, resqnow2, resqnow3, resqnow4, resqnowVideo],
   },
@@ -60,7 +59,7 @@ const PROJECTS = [
     category: 'personal',
     categoryLabel: 'Personal Project',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa.',
+    "E-Baligya is a full-stack digital seafood marketplace built to support local vendors in Bacolod, connecting verified sellers with consumers through a centralized platform. It features AI-assisted fish freshness verification using a pretrained machine learning model through Nyckel AI, along with product listings, inventory monitoring, bulk buying, bidding, order management, and real-time order tracking. The platform supports three user roles: Super Admin, Seller, and Consumer. The Super Admin manages seller verification, monitors marketplace activity through data analytics, manages reports and user restrictions, and receives low-stock alerts. Sellers can register and undergo business permit, government ID, and identity verification before managing products, participating in bidding, and tracking orders. Consumers can purchase products individually or through bulk buying and auction-style bidding, receive notifications, and track their orders.",
     technologies: ['React', 'Node.js', 'MongoDB'],
     images: [eBaligyaVideo],
   },
