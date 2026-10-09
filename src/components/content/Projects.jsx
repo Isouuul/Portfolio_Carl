@@ -13,11 +13,8 @@ import eBaligyaVideo from '../../assets/ProjectsList/E-Baligya.mp4';
 import freshStart1 from '../../assets/ProjectsList/FreshStart-1.jpg';
 import freshStart12 from '../../assets/ProjectsList/FreshStart-12.jpg';
 import freshStart13 from '../../assets/ProjectsList/FreshStart-13.jpg';
-import ead1 from '../../assets/ProjectsList/EAD-1.jpg';
-import ead2 from '../../assets/ProjectsList/EAD-2.jpg';
-import noll1 from '../../assets/ProjectsList/NOLL-1.png';
-import noll2 from '../../assets/ProjectsList/NOLL2.png';
-import noll3 from '../../assets/ProjectsList/NoLL-3.png';
+import thyExamify1 from '../../assets/ProjectsList/thy-examify-1.jpg';
+import thyExamify2 from '../../assets/ProjectsList/thy-examify-2.jpg';
 
 const PROJECTS = [
   // PERSONAL PROJECTS
@@ -77,48 +74,25 @@ const PROJECTS = [
     images: [freshStart1, freshStart12, freshStart13],
   },
 
-  // SHOPIFY PROJECTS
+  // INTERNSHIP PROJECTS
   {
-    id: 'ead-motosport',
-    title: 'EAD motoSport',
+    id: 'thy-examify',
+    title: 'Thy-Examify',
     year: '2026',
     category: 'shopify',
-    categoryLabel: 'Shopify Project',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nemo enim ipsam voluptatem quia voluptas sit aspernatur.',
-    technologies: ['Shopify', 'Liquid', 'JavaScript'],
-    images: [ead1, ead2],
+    categoryLabel: 'Internship Project',
+    description: 'An examination platform developed during my internship at Thy Web Dev Inc.',
+    technologies: [],
+    images: [thyExamify1, thyExamify2],
   },
   {
-    id: 'noll-inc',
-    title: 'Noll Inc.',
+    id: 'employee-crud-appsmith',
+    title: 'Employee CRUD Appsmith',
     year: '2026',
     category: 'shopify',
-    categoryLabel: 'Shopify Project',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque porro quisquam est, qui dolorem ipsum quia dolor.',
-    technologies: ['Shopify', 'Liquid', 'CSS'],
-    images: [noll1, noll2, noll3],
-  },
-  {
-    id: 'thermo-tec',
-    title: 'Thermo Tec',
-    year: '2026',
-    category: 'shopify',
-    categoryLabel: 'Shopify Project',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. At vero eos et accusamus et iusto odio dignissimos ducimus.',
-    technologies: ['Shopify', 'Liquid', 'JavaScript'],
-  },
-  {
-    id: 'fat-fender-garage',
-    title: 'Fat Fender Garage',
-    year: '2026',
-    category: 'shopify',
-    categoryLabel: 'Shopify Project',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Temporibus autem quibusdam et aut officiis debitis aut rerum.',
-    technologies: ['Shopify', 'Liquid', 'CSS'],
+    categoryLabel: 'Internship Project',
+    description: 'An employee management app built with Appsmith, supporting create, read, update, and delete workflows.',
+    technologies: ['Appsmith', 'CRUD'],
   },
 ];
 
@@ -133,9 +107,19 @@ const PROJECT_GROUPS = [
   },
   {
     category: 'shopify',
-    title: 'SHOPIFY PROJECTS',
+    title: 'INTERNSHIP PROJECTS',
   },
 ];
+
+const CARD_DESCRIPTION_WORD_LIMIT = 28;
+
+const getDescriptionPreview = (description) => {
+  const words = description.trim().split(/\s+/);
+
+  return words.length > CARD_DESCRIPTION_WORD_LIMIT
+    ? `${words.slice(0, CARD_DESCRIPTION_WORD_LIMIT).join(' ')}...`
+    : description;
+};
 
 const Projects = ({
   selectedProjectCategory = 'personal',
@@ -239,7 +223,7 @@ const Projects = ({
                           : 'project-description is-empty'
                       }
                     >
-                      {project.description || 'Details coming soon.'}
+                      {getDescriptionPreview(project.description || 'Details coming soon.')}
                     </p>
 
                     <div className="project-card-footer">
@@ -265,7 +249,7 @@ const Projects = ({
                           setSelectedProject(project);
                         }}
                       >
-                        View project
+                        See more
                       </button>
                     </div>
 
@@ -307,6 +291,17 @@ const Projects = ({
               >
                 <span aria-hidden="true">×</span>
               </button>
+            </div>
+
+            <p className="project-modal-description">
+              {selectedProject.description || 'Details coming soon.'}
+            </p>
+            <div className="project-modal-technologies">
+              {selectedProject.technologies.map((technology) => (
+                <span className="technology-tag" key={technology}>
+                  {technology}
+                </span>
+              ))}
             </div>
 
             {selectedProject.images?.length ? (
@@ -391,16 +386,6 @@ const Projects = ({
               <div className="project-modal-empty">Project preview coming soon.</div>
             )}
 
-            <p className="project-modal-description">
-              {selectedProject.description || 'Details coming soon.'}
-            </p>
-            <div className="project-modal-technologies">
-              {selectedProject.technologies.map((technology) => (
-                <span className="technology-tag" key={technology}>
-                  {technology}
-                </span>
-              ))}
-            </div>
           </>
         )}
       </dialog>

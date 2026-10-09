@@ -771,7 +771,7 @@
 }
 
 .project-modal-description {
-  max-width: 70ch;
+  max-width: auto;
   margin: 20px 0 14px;
   color: #a8a8a8;
   font-size: 13px;
@@ -782,6 +782,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 7px;
+  margin-bottom: 20px;
 }
 
 
