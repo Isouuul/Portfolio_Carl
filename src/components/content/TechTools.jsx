@@ -1,55 +1,79 @@
 import "./Techtools.css";
 import { createElement } from "react";
 import {
-  FaReact,
-  FaJs,
-  FaHtml5,
+  FaCode,
   FaCss3Alt,
-  FaNodeJs,
+  FaDatabase,
   FaGitAlt,
   FaGithub,
+  FaHtml5,
+  FaJs,
+  FaLayerGroup,
+  FaMousePointer,
+  FaNodeJs,
+  FaReact,
 } from "react-icons/fa";
-import { SiMongodb, SiFirebase, SiGooglemaps } from "react-icons/si";
+import { SiFirebase } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 
-// Edit the groups and tools to match your real stack.
-// Each tool needs a name and an icon component.
 const GROUPS = [
   {
     key: "frontend",
     name: "Frontend",
-    note: "What I use to build what people see and click.",
+    note: "Core languages and styling for responsive interfaces.",
+    tools: [
+      { name: "HTML5", Icon: FaHtml5 },
+      { name: "CSS3", Icon: FaCss3Alt },
+      { name: "JavaScript", Icon: FaJs },
+    ],
+  },
+  {
+    key: "frameworks",
+    name: "Frameworks",
+    note: "Libraries and frameworks for modern applications.",
     tools: [
       { name: "React", Icon: FaReact },
-      { name: "JavaScript", Icon: FaJs },
-      { name: "HTML", Icon: FaHtml5 },
-      { name: "CSS", Icon: FaCss3Alt },
+      { name: "React Native", Icon: FaReact },
+      { name: "Next.js", Icon: FaCode },
     ],
   },
   {
     key: "backend",
     name: "Backend",
-    note: "APIs and server logic behind the screens.",
-    tools: [{ name: "Node.js", Icon: FaNodeJs }],
+    note: "Server-side tools and API development.",
+    tools: [
+      { name: "Node.js", Icon: FaNodeJs },
+      { name: "Express", Icon: FaCode },
+      { name: "PostgreSQL", Icon: FaDatabase },
+    ],
   },
   {
-    key: "data",
-    name: "Database & Cloud",
-    note: "Where data lives and how it syncs.",
+    key: "database",
+    name: "Database",
+    note: "Data storage and real-time services.",
     tools: [
-      { name: "MongoDB", Icon: SiMongodb },
       { name: "Firebase", Icon: SiFirebase },
+      { name: "MySQL", Icon: FaDatabase },
+    ],
+  },
+  {
+    key: "principles",
+    name: "Principles",
+    note: "Practices for maintainable, scalable software.",
+    tools: [
+      { name: "System Design", Icon: FaLayerGroup },
+      { name: "Clean Architecture", Icon: FaLayerGroup },
     ],
   },
   {
     key: "tools",
-    name: "Tools & APIs",
-    note: "Everyday tools and third-party services.",
+    name: "Tools",
+    note: "Version control and everyday development tools.",
     tools: [
       { name: "Git", Icon: FaGitAlt },
       { name: "GitHub", Icon: FaGithub },
       { name: "VS Code", Icon: VscVscode },
-      { name: "Maps API", Icon: SiGooglemaps },
+      { name: "Cursor", Icon: FaMousePointer },
     ],
   },
 ];
