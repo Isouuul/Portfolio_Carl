@@ -181,13 +181,13 @@
 
 .exp-company {
   margin: 6px 0 14px;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: var(--olive);
 }
 
 .exp-desc {
   margin: 0 0 18px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.75;
   color: #bdb5a0;
   max-width: auto;
@@ -203,12 +203,20 @@
 }
 
 .exp-tags li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   padding: 4px 10px;
-  font-size: 0.72rem;
+  font-size: 0.9rem;
   color: var(--gold);
   background: #17140a;
   border: 1px solid var(--line);
   border-radius: 2px;
+}
+
+.exp-tag-icon {
+  flex: 0 0 auto;
+  font-size: 1rem;
 }
 
 /* responsive */
@@ -265,3 +273,68 @@
     transform: none;
   }
 }
+
+/* ========================================
+   EXPERIENCE ROLE ICON
+======================================== */
+
+.exp-role-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.exp-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #a78bfa;
+  font-size: 19px;
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.exp-card:hover .exp-icon {
+  color: #c4b5fd;
+  background: rgba(167, 139, 250, 0.12);
+  border-color: rgba(167, 139, 250, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Keep the role heading aligned with its icon */
+.exp-role {
+  margin: 0;
+}
+
+/* ========================================
+   RESPONSIVE ICON AND ROLE ALIGNMENT
+======================================== */
+
+@media (max-width: 600px) {
+  .exp-role-group {
+    gap: 10px;
+  }
+
+  .exp-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    font-size: 16px;
+  }
+
+  .exp-card-top {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+}
+
