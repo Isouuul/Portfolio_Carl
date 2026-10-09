@@ -1,19 +1,15 @@
 import './Certificates.css';
+import diplomaImage from '../../assets/Diploma.jpg';
+import completionImage from '../../assets/Completion-OJT.jpg';
 
 const CERTIFICATES = [
   {
-    title: 'Diploma in Information Technology',
-    issuer: 'STI West Negros University',
-    year: '2025',
-    description:
-      'Completed a Bachelor of Science in Information Technology program, building a strong foundation in software development, systems, and digital technology.',
+    image: diplomaImage,
+    alt: 'Bachelor of Science in Information Technology diploma',
   },
   {
-    title: 'Certificate of Completion',
-    issuer: 'Thy Web Dev Inc. OJT',
-    year: '2025',
-    description:
-      'Successfully completed an on-the-job training program in web development, gaining hands-on experience in real-world project work and frontend implementation.',
+    image: completionImage,
+    alt: 'Thy Web Development Inc. on-the-job training certificate of completion',
   },
 ];
 
@@ -33,11 +29,8 @@ export default function Certificates() {
 
         <div className="cert-grid">
           {CERTIFICATES.map((item) => (
-            <article key={item.title} className="cert-card">
-              <span className="cert-year">{item.year}</span>
-              <h3 className="cert-name">{item.title}</h3>
-              <p className="cert-issuer">{item.issuer}</p>
-              <p className="cert-description">{item.description}</p>
+            <article key={item.image} className="cert-card">
+              <img className="cert-image" src={item.image} alt={item.alt} />
             </article>
           ))}
         </div>
