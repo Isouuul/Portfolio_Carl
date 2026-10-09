@@ -21,7 +21,7 @@ const About = () => {
 
         <h1 className="profile-name">CARL BRYAN T. SACUDIT</h1>
         <p className="profile-role">
-          Entry-Level Full-Stack Developer | BSIT Graduate
+          Full-Stack Developer | BSIT Graduate
         </p>
       </header>
 
@@ -35,7 +35,7 @@ const About = () => {
           </div>
 
           <p className="section-text">
-            I'm a <strong>Entry-Level Full-Stack Developer</strong> and{' '}
+            I'm a <strong>Full-Stack Developer</strong> and{' '}
             <strong>BSIT Graduate</strong> from{' '}
             <strong>STI West Negros University</strong>. I bridge the gap
             between user needs and technical implementation by building

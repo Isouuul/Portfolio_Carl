@@ -20,7 +20,7 @@ function App() {
             <span className="site-footer-mark" aria-hidden="true" />
             <div>
               <p className="site-footer-name">Carl Bryan Sacudit</p>
-              <p className="site-footer-role">Entry-Level Full-Stack Developer</p>
+              <p className="site-footer-role">Full-Stack Developer</p>
             </div>
           </div>
           <p className="site-footer-copy">
